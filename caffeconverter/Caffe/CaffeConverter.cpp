@@ -94,7 +94,8 @@ static caffeLayerRegistry(const std::string& layerType) {
         {"Power",CoreMLConverter::convertCaffePower},
         {"Log",CoreMLConverter::convertCaffeLog},
         {"Crop",CoreMLConverter::convertCaffeCrop},
-        {"Reshape",CoreMLConverter::convertCaffeReshape}
+        {"Reshape",CoreMLConverter::convertCaffeReshape}, 
+        {"Permute",CoreMLConverter::convertCaffePermute}
     };
     
     // Find the layer in the global registry.

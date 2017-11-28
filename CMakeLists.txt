@@ -87,6 +87,7 @@ add_library(caffeconverter
   caffeconverter/Caffe/Activation.cpp
   caffeconverter/Caffe/Convolution.cpp
   caffeconverter/Caffe/Reshape.cpp
+  caffeconverter/Caffe/Permute.cpp
   deps/caffe/src/caffe/proto/caffe.pb.cc
   deps/caffe/src/caffe/util/upgrade_proto.cpp
 )

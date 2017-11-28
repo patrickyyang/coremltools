@@ -116,6 +116,7 @@ namespace CoreMLConverter {
     void convertCaffeLog(ConvertLayerParameters layerParameters);
     void convertCaffeCrop(ConvertLayerParameters layerParameters);
     void convertCaffeReshape(ConvertLayerParameters layerParameters);
+    void convertCaffePermute(ConvertLayerParameters layerParameters);
 
 }
 

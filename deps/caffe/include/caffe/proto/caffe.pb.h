@@ -152,6 +152,9 @@ extern ParamSpecDefaultTypeInternal _ParamSpec_default_instance_;
 class ParameterParameter;
 class ParameterParameterDefaultTypeInternal;
 extern ParameterParameterDefaultTypeInternal _ParameterParameter_default_instance_;
+class PermuteParameter;
+class PermuteParameterDefaultTypeInternal;
+extern PermuteParameterDefaultTypeInternal _PermuteParameter_default_instance_;
 class PoolingParameter;
 class PoolingParameterDefaultTypeInternal;
 extern PoolingParameterDefaultTypeInternal _PoolingParameter_default_instance_;
@@ -3581,6 +3584,15 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   ::caffe::RecurrentParameter* release_recurrent_param();
   void set_allocated_recurrent_param(::caffe::RecurrentParameter* recurrent_param);
 
+  // optional .caffe.PermuteParameter permute_param = 202;
+  bool has_permute_param() const;
+  void clear_permute_param();
+  static const int kPermuteParamFieldNumber = 202;
+  const ::caffe::PermuteParameter& permute_param() const;
+  ::caffe::PermuteParameter* mutable_permute_param();
+  ::caffe::PermuteParameter* release_permute_param();
+  void set_allocated_permute_param(::caffe::PermuteParameter* permute_param);
+
   // optional .caffe.Phase phase = 10;
   bool has_phase() const;
   void clear_phase();
@@ -3690,6 +3702,8 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   void clear_has_tile_param();
   void set_has_window_data_param();
   void clear_has_window_data_param();
+  void set_has_permute_param();
+  void clear_has_permute_param();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<2> _has_bits_;
@@ -3750,6 +3764,7 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   ::caffe::CropParameter* crop_param_;
   ::caffe::ParameterParameter* parameter_param_;
   ::caffe::RecurrentParameter* recurrent_param_;
+  ::caffe::PermuteParameter* permute_param_;
   int phase_;
   mutable int _cached_size_;
   friend struct protobuf_caffe_2eproto::TableStruct;
@@ -11410,6 +11425,101 @@ class PReLUParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   bool channel_shared_;
   friend struct protobuf_caffe_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class PermuteParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:caffe.PermuteParameter) */ {
+ public:
+  PermuteParameter();
+  virtual ~PermuteParameter();
+
+  PermuteParameter(const PermuteParameter& from);
+
+  inline PermuteParameter& operator=(const PermuteParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PermuteParameter& default_instance();
+
+  static inline const PermuteParameter* internal_default_instance() {
+    return reinterpret_cast<const PermuteParameter*>(
+               &_PermuteParameter_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    61;
+
+  void Swap(PermuteParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  inline PermuteParameter* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  PermuteParameter* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const PermuteParameter& from);
+  void MergeFrom(const PermuteParameter& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(PermuteParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 order = 1;
+  int order_size() const;
+  void clear_order();
+  static const int kOrderFieldNumber = 1;
+  ::google::protobuf::uint32 order(int index) const;
+  void set_order(int index, ::google::protobuf::uint32 value);
+  void add_order(::google::protobuf::uint32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      order() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_order();
+
+  // @@protoc_insertion_point(class_scope:caffe.PermuteParameter)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > order_;
+  friend struct protobuf_caffe_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -14774,13 +14884,13 @@ LayerParameter::mutable_top() {
 
 // optional .caffe.Phase phase = 10;
 inline bool LayerParameter::has_phase() const {
-  return (_has_bits_[1] & 0x00020000u) != 0;
+  return (_has_bits_[1] & 0x00040000u) != 0;
 }
 inline void LayerParameter::set_has_phase() {
-  _has_bits_[1] |= 0x00020000u;
+  _has_bits_[1] |= 0x00040000u;
 }
 inline void LayerParameter::clear_has_phase() {
-  _has_bits_[1] &= ~0x00020000u;
+  _has_bits_[1] &= ~0x00040000u;
 }
 inline void LayerParameter::clear_phase() {
   phase_ = 0;
@@ -17090,6 +17200,51 @@ inline void LayerParameter::set_allocated_window_data_param(::caffe::WindowDataP
     clear_has_window_data_param();
   }
   // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.window_data_param)
+}
+
+// optional .caffe.PermuteParameter permute_param = 202;
+inline bool LayerParameter::has_permute_param() const {
+  return (_has_bits_[1] & 0x00020000u) != 0;
+}
+inline void LayerParameter::set_has_permute_param() {
+  _has_bits_[1] |= 0x00020000u;
+}
+inline void LayerParameter::clear_has_permute_param() {
+  _has_bits_[1] &= ~0x00020000u;
+}
+inline void LayerParameter::clear_permute_param() {
+  if (permute_param_ != NULL) permute_param_->::caffe::PermuteParameter::Clear();
+  clear_has_permute_param();
+}
+inline const ::caffe::PermuteParameter& LayerParameter::permute_param() const {
+  // @@protoc_insertion_point(field_get:caffe.LayerParameter.permute_param)
+  return permute_param_ != NULL ? *permute_param_
+                         : *::caffe::PermuteParameter::internal_default_instance();
+}
+inline ::caffe::PermuteParameter* LayerParameter::mutable_permute_param() {
+  set_has_permute_param();
+  if (permute_param_ == NULL) {
+    permute_param_ = new ::caffe::PermuteParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:caffe.LayerParameter.permute_param)
+  return permute_param_;
+}
+inline ::caffe::PermuteParameter* LayerParameter::release_permute_param() {
+  // @@protoc_insertion_point(field_release:caffe.LayerParameter.permute_param)
+  clear_has_permute_param();
+  ::caffe::PermuteParameter* temp = permute_param_;
+  permute_param_ = NULL;
+  return temp;
+}
+inline void LayerParameter::set_allocated_permute_param(::caffe::PermuteParameter* permute_param) {
+  delete permute_param_;
+  permute_param_ = permute_param;
+  if (permute_param) {
+    set_has_permute_param();
+  } else {
+    clear_has_permute_param();
+  }
+  // @@protoc_insertion_point(field_set_allocated:caffe.LayerParameter.permute_param)
 }
 
 // -------------------------------------------------------------------
@@ -25819,7 +25974,43 @@ inline void PReLUParameter::set_channel_shared(bool value) {
   // @@protoc_insertion_point(field_set:caffe.PReLUParameter.channel_shared)
 }
 
+// -------------------------------------------------------------------
+
+// PermuteParameter
+
+// repeated uint32 order = 1;
+inline int PermuteParameter::order_size() const {
+  return order_.size();
+}
+inline void PermuteParameter::clear_order() {
+  order_.Clear();
+}
+inline ::google::protobuf::uint32 PermuteParameter::order(int index) const {
+  // @@protoc_insertion_point(field_get:caffe.PermuteParameter.order)
+  return order_.Get(index);
+}
+inline void PermuteParameter::set_order(int index, ::google::protobuf::uint32 value) {
+  order_.Set(index, value);
+  // @@protoc_insertion_point(field_set:caffe.PermuteParameter.order)
+}
+inline void PermuteParameter::add_order(::google::protobuf::uint32 value) {
+  order_.Add(value);
+  // @@protoc_insertion_point(field_add:caffe.PermuteParameter.order)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+PermuteParameter::order() const {
+  // @@protoc_insertion_point(field_list:caffe.PermuteParameter.order)
+  return order_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+PermuteParameter::mutable_order() {
+  // @@protoc_insertion_point(field_mutable_list:caffe.PermuteParameter.order)
+  return &order_;
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
